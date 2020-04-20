@@ -13,5 +13,6 @@ namespace quizBackEnd.Models
         public String Answer1 { get; set; }
         public String Answer2 { get; set; }
         public String Answer3 { get; set; }
+        public int QuizId { get; set; }
     }
 }

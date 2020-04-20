@@ -12,10 +12,11 @@ export class ApiService{
 
     constructor(private http:HttpClient){}
 
-    getQuestions(){
-        return this.http.get('https://localhost:44375/api/questions');
+    getQuestions(quizId){
+        return this.http.get('https://localhost:44375/api/questions/'+quizId)  ;
     }
-
+    
+   
     postQuestion(question){
         this.http.post('https://localhost:44375/api/questions',question).subscribe(res=>{
             console.log(res);
@@ -30,6 +31,11 @@ export class ApiService{
     getQuizzes(){
         return this.http.get('https://localhost:44375/api/quizzes');
     }
+
+    getAllQuizzes(){
+        return this.http.get('https://localhost:44375/api/quizzes/all');
+    }
+
     putQuiz(quiz){
         console.log(quiz);
         this.http.put('https://localhost:44375/api/quizzes/'+quiz.id,quiz).subscribe(res=>{
